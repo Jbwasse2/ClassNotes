@@ -1,0 +1,80 @@
+\chapter{Introduction to Rotation}
+\section{Introduction}
+Rotation is important for understanding the kinematics of a robot and to understand what sensor date may look like with different frames of references. A frame of reference may be an arbitrary point on the robot that makes the data more useful. This section will first introduce 2D rotation and then discuss 3D rotation.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{tworefs}
+    \caption{Two Reference Frames $(x_1,y_1)$ and $(x_2,y_2)$}
+    \label{fig:tworefs}
+\end{figure}
+
+A 2D frame can be offset from another frame in terms of x position, y position, and rotation. For a 2D system the positional offset of a frame can be described by (x,y) (as can been seen in Figure \ref{fig:posoffset}). Figure \ref{fig:tworefs} shows reference frame 2 being offset from reference frame 1 by a rotation $\alpha$. 
+
+
+\begin{figure}[ht]
+    \centering
+    \incfig{posoffset}
+    \caption{Two Frames Offset by (x,y)}
+    \label{fig:posoffset}
+\end{figure}
+
+\section{SO(2) Matrix}
+\begin{equation}
+\begin{pmatrix}
+    \cos\theta & \sin\theta \\
+    -\sin\theta & \cos\theta\\
+\end{pmatrix} 
+\label{eqn:so2}
+\end{equation}
+
+The SO(2) matrix (which is short for Special Orthogonal Matrix of order 2), is a matrix that can describe rotation in a 2D space, it can be seen in Equation \ref{eqn:so2}. The SO(2) matrix has a few important properties (R is the SO(2) matrix).
+\begin{enumerate}
+    \item det(R) = 1
+    \item $RR^T = R^TR = I$
+\end{enumerate}
+
+Property 1 of the SO(2) matrix implies that when a vector does not scale or become skewed when a dot product is performed with it and a SO(2) matrix. Property 2 of the SO(2) matrix implies that $R^{-1}$ = $R^T$ and that the matrix is orthogonal. \todo{Talk about what an orthogonal matrix is and why its important}
+
+A vector x can be rotated by an angle $\alpha$ by creating a SO(2) matrix with $\alpha$ and then performing a dot product with x. 
+
+\begin{equation}
+    x_2 = R_\alpha x
+    \label{eqn:xRotation}
+\end{equation}
+
+Another rotation can be performed.
+
+\begin{equation}
+    x_3 = R_\beta x_2
+    \label{eqn:xRotation_2}
+\end{equation}
+
+However, this is equivalent to
+\begin{equation}
+    x_3 = R_\beta R_\alpha x
+    \label{eqn:xRotation_3}
+\end{equation}
+
+Further simplification can be performed for SO(2) matrices
+\begin{equation}
+    R_\beta R_\alpha = \begin{bmatrix} c\beta & s\beta \\ -s\beta & c\beta \end{bmatrix} \begin{bmatrix} c\alpha & s\alpha \\ -s\alpha & c\alpha \end{bmatrix} = \begin{bmatrix} c(\alpha + \beta) & s(\alpha + \beta) \\ -s(\alpha + \beta) & c(\alpha + \beta) \end{bmatrix} = R_{\alpha + \beta}
+\end{equation}
+
+So, if 2 or more rotations were to be performed on a vector, it could be done in a single dot product instead of many.
+
+\section{3D rotation}
+\begin{figure}[ht]
+    \centering
+    \incfig{rot3d}
+    \caption{Rotation in 3 Dimensions}
+    \label{fig:rot3d}
+\end{figure}
+
+Rotation can also be given in 3D, but to do so relies on introduces the SO(3) matrix. 
+\begin{figure}[ht]
+    \centering
+    \incfig{planedof}
+    \caption{planeDOF}
+    \label{fig:planedof}
+\end{figure}

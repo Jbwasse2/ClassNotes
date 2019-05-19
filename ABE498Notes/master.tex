@@ -1,0 +1,127 @@
+\documentclass[draftthesis,tocnosub,noragright,centerchapter,12pt]{uiucecethesis09}
+
+% Use draftthesis for notes and date markings on every page.  Useful when you
+%   have multiple copies floating around.
+% Use offcenter for the extra .5 inch on the left side. Needed with fullpage and fancy.
+% Use mixcasechap for compatibility with hyperref package, which does NOT like all caps default
+% Use edeposit for the adviser/committee on the title page.
+% Use tocnosub to suppress subsection and lower entries in the TOC.
+% PhD candidates use "proquest" for the proquest abstract.
+
+\makeatletter
+
+\usepackage{setspace}
+\usepackage{epsfig}  % for figures
+\usepackage{graphicx}  % another package that works for figures
+\usepackage{subfigure}  % for subfigures
+\usepackage{amsmath}  % for math spacing
+\usepackage{amssymb}  % for math spacing
+\usepackage{url}  % Hyphenation of URLs.
+\usepackage{lscape}  % Useful for wide tables or figures.
+\usepackage[justification=raggedright]{caption}	% makes captions ragged right - thanks to Bryce Lobdell
+\usepackage{unicode}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\todo}[1]{ {\color{red} #1} }
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
+\pdfsuppresswarningpagegroup=1
+
+\title{Class Notes for ABE 498}
+\author{Justin Wasserman}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COPYRIGHT
+%
+%\copyrightpage
+%\blankpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE
+%
+\maketitle
+
+%\raggedright
+\parindent 1em%
+
+\frontmatter
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TABLE OF CONTENTS
+%
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LIST OF TABLES
+%
+% The List of Tables is not strictly necessary. Omitting the List of Tables will
+% simplify the thesis check and reduce the number of corrections.
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LIST OF FIGURES
+%
+% The List of Figures is not strictly necessary. Omitting the List of Figures will
+% simplify the thesis check and reduce the number of corrections.
+\listoffigures
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LIST OF ABBREVIATIONS
+%
+% The List of Abbreviations is not strictly necessary.
+\chapter{LIST OF ABBREVIATIONS}
+
+\begin{symbollist*}
+\item[GPS] Global Positioning System 
+\item[c($\theta$)] = cos($\theta$)
+\item[s($\theta$)] = sin($\theta$)
+\end{symbollist*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LIST OF SYMBOLS
+%
+%\begin{symbollist}[0.7in]
+%\item[$\tau$] Time taken to drink one cup of coffee.
+%\end{symbollist}
+
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INSERT REAL CONTENT HERE
+%
+\input{chapters/review.tex}
+\input{chapters/rotation.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX
+%
+\appendix
+%\include{apx}
+
+\backmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAPHY
+%
+\bibliographystyle{IEEE_ECE}
+% Put references in BibTeX format in thesisrefs.bib.
+\bibliography{thesisrefs}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AUTHOR'S BIOGRAPHY
+% As of 10/03/2011, Author's Biography or Vita no longer accepted by Grad College
+
+\end{document}
+\endinput

@@ -1,0 +1,21 @@
+\chapter{Review}
+
+\section{Control Systems}
+
+\begin{figure}[ht]
+    \centering
+    \incfig{cart}
+    \caption{Example Car-Spring System}
+    \label{fig:cart}
+\end{figure}
+
+For the purposes of this class a control system is a system with dynamics and an input that the user can select. In the example given in Figure \ref{fig:cart}, the input to the cart is done by pulling on it away from the wall. The general formula for the state space model is given by $\dot{X_1}(t) = f_1(x_1,x_2,\ldots,x_n,u_1,u_2,\ldots,,u_m)$
+
+In the example given in Figure \ref{fig:cart}, $x_1$ is the displacement of the cart relative to its starting position, and $x_2$ is the velocity of the cart. This gives the kinematics relationship $\dot{x_1} = x_2$. The dynamic relationship of the cart can be observed by observing Figure \ref{fig:forces}.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{forces}
+    \caption{forces}
+    \label{fig:forces}
+\end{figure}
